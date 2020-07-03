@@ -1,0 +1,41 @@
+//Making an event
+//You can also have APPLICATION events, but those don't bubble up the DOM, so component with a handler can catch that kind (they also don't get a name when registered)
+<aura:event type="COMPONENT">
+	<aura:attribute name="payload" type="String"/>
+</aura:event>
+
+
+
+//In the component that you're firing the event from
+//Type is essentially the filename and name is what you are calling this specific event that you are going to fire from this component
+<aura: component>
+	<aura:registerEvent type="c:CustomEventImade" name="specificEvent"/>
+</aura: component>
+
+//The associated JS controller
+({
+	method : function(component,event,helper){
+		//for application events this line would be 
+		//var exEvt = $A.get(“e.c:CustomEventImade”);
+		var myevent = component.get("CustomEventImade");
+		myevent.setParams({"payload" : "An event has occurred"});
+		myevent.fire()
+	}
+})
+
+
+
+//In the class where the event should be handled
+//Note that type and event do basically the same thing, but one is for registering and one is for handling
+<aura: component>
+	<aura:handler event="c:CustomEventImade" name="specificEvent" action="{!c.handleThatEvent}"/>
+	<aura:attribute name="attributeToSet" type="String"/>
+</aura: component>
+
+//The associated JS controller
+({
+	handleThatEvent : function(component,event,helper){
+		component.set("v.attributeToSet",event.getParam("payload"));
+		//This would set attributeToSet's value to "An event has occurred"
+	}
+})
