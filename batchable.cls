@@ -1,5 +1,6 @@
+//Batch Apex is used to process large numbers of records (up to 50 milling) in small batches to avoid governor limits
 //Apex class implementing Database.Batchable interface
-//Must be global and include: 
+//Must be global or public
 //global (Database.QueryLocator | Iterable<sObject>) start(Database.BatchableContext bc) {}
 //global void execute(Database.BatchableContext BC, list<P>){}
 //global void finish(Database.BatchableContext BC){}
@@ -36,7 +37,7 @@ global class BatchThis implements Database.Batchable{
 }
 
 //Batchable Class Execution
-Integer batchSize = 5;
+Integer batchSize = 5; //Max = 2000
 Id BatchThisId = Database.executeBatch(new BatchThis('STRING X'), batchSize);
 
 //Can schedule execution using System.sechduleBatch();

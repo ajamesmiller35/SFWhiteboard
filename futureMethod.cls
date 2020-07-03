@@ -1,3 +1,4 @@
+//Future methods are used to asynchronously run apex code
 //Callout from a trigger or after DML operations must use @future
 //Identified using @future annotation
 //Must be static void
