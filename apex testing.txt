@@ -1,0 +1,3 @@
+// Apex testing
+//test classes are delcared with the @isTest annotation
+//test classes can be public or private
