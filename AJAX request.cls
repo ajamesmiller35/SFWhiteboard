@@ -19,4 +19,3 @@
         //3.wheter the request is Asynchronous or not
     //send sends duhhh
     //once request returns onreadystatechange is called for the final time
-
