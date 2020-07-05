@@ -4,6 +4,7 @@
 //          and select when formula evaluates to true
 
 //Begin by creating a Scheduled Class.
+//Note that it would be better practice to but the logic in a Batchable class to avoid gov limits
 global class AutomaticallyCloseCases implements Schedulable {
     //Now write the execute() method that will execute
     global void execute(SchedulableContext sc) {
