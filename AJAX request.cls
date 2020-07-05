@@ -5,7 +5,7 @@
     //4. Send Request
 
     var xhr = new XMLHttpRequest(); //step 1
-    xhr.onreadstatechange = function(){
+    xhr.onreadystatechange = function(){
         if(this.readyState ==4 && this.status ==200){
                     //ready state 4 means request completed and returned
         };//step 2
@@ -19,3 +19,4 @@
         //3.wheter the request is Asynchronous or not
     //send sends duhhh
     //once request returns onreadystatechange is called for the final time
+
