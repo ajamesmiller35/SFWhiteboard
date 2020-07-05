@@ -4,9 +4,13 @@ trigger ContactTrigger on Contact(before insert, before delete, before update,
 										 after insert, after update, after delete, after undelete){
 	//I don't think that they'll ask you to fill out the details for each of these, but do keep in mind that it is very important to avoid loops
 	//where triggers call each other back and forth if you include DML opperations in the conditionals here.
+
+	//Also don't forget it is usually recommended to keep logic out of triggers. Call Apex classes conditionally in your triggers and pass the trigger info.
+
 	if(Trigger.isBefore){
 		if(Trigger.isUpdate){
-
+			//Example:
+			HandleTrigger.handleUpdate(Trigger.New);
 		} else if(Trigger.isInsert) {
 		
 		} else if(Trigger.isDelete) {
