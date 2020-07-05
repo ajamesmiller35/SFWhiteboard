@@ -29,3 +29,7 @@
     <apex:page controller="ExampleCustomController">
     </apex:page>
 
+
+    <apex:page standardController="Contact" extensions="ContactControllerExtension">
+    </apex:page>
+
