@@ -9,9 +9,9 @@
         if(this.readyState ==4 && this.status ==200){
                     //ready state 4 means request completed and returned
         };//step 2
-        xhr.open("GET","url",true);//step 3
-        xhr.send();//step 4
     }
+    xhr.open("GET","url",true);//step 3
+    xhr.send();//step 4
     //onreadstatechange function is called every time readyState property of the XMLHttpRequest object changes
     //Open method takes 3 parameters
         //1.Http method(GET)
